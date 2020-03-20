@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+class App extends React.Component{
+    constructor(props){
+      super(props)
+      this.state = {
+        value: []
+      }
+    }
+
+  componentDidMount(){
+    fetch("https://raw.githubusercontent.com/prayagd/unicorn-startups-list/master/src/unicorndata.json")
+    .then(res => res.json())
+    .then(val => {
+      this.setState({
+        value: [val[0], val[1], val[2], val[3]]
+      })
+    })
+  }
+
+  render(){
+    return(
+        <table>
+          <tr>
+            <th>Startup</th>
+            <th>Valuation</th>
+            <th>Valuation date</th>
+            <th>Country</th>
+          </tr>
+
+          {this.state.value.map((val, i) =>
+            <tr>
+              
+            </tr>
+          )}
+        </table>
+    )
+  }
 }
 
 export default App;
