@@ -1,8 +1,5 @@
 import React from 'react';
 
-
-
-
 class App extends React.Component{
     constructor(props){
       super(props)
@@ -30,12 +27,7 @@ class App extends React.Component{
             <th>Valuation date</th>
             <th>Country</th>
           </tr>
-
-          {this.state.value.map((val, i) =>
-            <tr>
-              
-            </tr>
-          )}
+    
         </table>
     )
   }
